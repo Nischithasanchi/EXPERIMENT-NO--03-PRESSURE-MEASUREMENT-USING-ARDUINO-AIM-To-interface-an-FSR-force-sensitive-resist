@@ -75,10 +75,77 @@ The easiest way to measure a resistive sensor is to connect one end to power and
 10.	Plot the graph for the output voltage vs the resistance 
 
 
-### PROGRAM 
- *your roll no 
- * your name 
- * department and year 
+ PROGRAM:
+ ```
+ // C++ code
+//
+#define fsrpin A0
+#define led1 2
+#define led2 3
+#define led3 4
+#define led4 5
+#define led5 6
+#define led6 7
+
+int fsrreading;
+void setup()
+{
+ Serial.begin(9600);
+ pinMode(led1, OUTPUT);
+ pinMode(led2, OUTPUT);
+ pinMode(led3, OUTPUT);
+ pinMode(led4, OUTPUT);
+ pinMode(led5, OUTPUT);
+ pinMode(led6, OUTPUT);
+}
+
+void loop()
+{
+ fsrreading = analogRead(fsrpin);
+ 
+ Serial.println(fsrreading);
+ 
+ if(fsrreading > 150)
+ {
+ digitalWrite(led1, HIGH);
+ }
+ else digitalWrite(led1, LOW);
+ 
+ if(fsrreading > 300)
+ {
+ digitalWrite(led2, HIGH);
+ }
+ else digitalWrite(led2, LOW);
+ 
+ if(fsrreading > 450)
+ {
+ digitalWrite(led3, HIGH);
+ }
+ else digitalWrite(led3, LOW);
+ 
+ if(fsrreading > 600)
+ {
+ digitalWrite(led4, HIGH);
+ }
+ else digitalWrite(led4, LOW);
+ 
+ if(fsrreading > 750)
+ {
+ digitalWrite(led5, HIGH);
+ }
+ else digitalWrite(led5, LOW);
+ 
+ if(fsrreading > 900)
+ {
+ digitalWrite(led6, HIGH);
+ }
+ else digitalWrite(led6, LOW);
+ 
+ delay(1000); // Wait for 1000 millisecond(s)
+ digitalWrite(LED_BUILTIN, LOW);
+ delay(1000); // Wait for 1000 millisecond(s)
+}
+```
  
  
  
@@ -95,7 +162,6 @@ The easiest way to measure a resistive sensor is to connect one end to power and
  
  
 
-![image](https://user-images.githubusercontent.com/36288975/188804653-a3154e8e-2655-46f2-9dcd-f425dd1ba109.png)
 
 
 ### TABLE -02 standard deviation table 
@@ -115,6 +181,11 @@ EX:           μ = (1+3+4+7+8) / 5 = 4.6
 σ = √[(1 - 4.6)2 + (3 - 4.6)2 + ... + (8 - 4.6)2)]/5
 σ = √(12.96 + 2.56 + 0.36 + 5.76 + 11.56)/5 = 2.577
 
+OUTPUT :
+
+![image](https://user-images.githubusercontent.com/104021170/206892215-1e274b94-6831-444a-aebc-76e8d7ca9ee6.png)
+
+![image](https://user-images.githubusercontent.com/104021170/206892219-2a43ef33-8ec4-4f58-a20b-72269d9fd5cf.png)
 
 
 
@@ -129,4 +200,7 @@ EX:           μ = (1+3+4+7+8) / 5 = 4.6
 
 
 
-### RESULTS : Arduino uno is interfaced with FSR and output values are indicated on a graph.
+
+
+
+ RESULTS : Arduino uno is interfaced with FSR and output values are indicated on a graph.
